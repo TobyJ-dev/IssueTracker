@@ -45,6 +45,9 @@ class IssueParser:
             if "DTJ-XXX" in block:
                 continue
 
+            if not re.match(r"##\s+(TGIS-\d+)\s+—\s+", block):
+                continue
+
             issues.append(self._parse_issue(block))
 
         return issues
